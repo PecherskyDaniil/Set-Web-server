@@ -14,7 +14,7 @@
 ` location / {
         proxy_pass http://unix:/home/user/setapp/setapp.sock;
     }
-`
+
 8.     Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой `systemctl daemon-reload `
 `
 [Unit]
