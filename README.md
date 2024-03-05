@@ -16,8 +16,8 @@
     }
 `
 8.     Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой `systemctl daemon-reload `
-
-`[Unit]
+`
+[Unit]
 Description=setapp.service - A Flask application run with Gunicorn.
 After=network.target
 
