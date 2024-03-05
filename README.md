@@ -13,8 +13,7 @@
 7.   В config файле вашего сайта, в разделе location укажите в директиве proxy_pass путь к вашему сокету (имя юзера и setapp ваши):
 ` location / {
         proxy_pass http://unix:/home/user/setapp/setapp.sock;
-    }
-`
+    }`
 8.     Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой `systemctl daemon-reload `
 `
 [Unit]
@@ -29,7 +28,7 @@ ExecStart=/usr/bin/gunicorn --workers 3 \
 --bind unix:/home/user/setapp/setapp.sock wsgi:app
 
 [Install]
-WantedBy=multi-user.target
-`
+WantedBy=multi-user.target`
+
 9. После запустите сервис командой `sudo service setapp start `
 С этого момента публичный адрес вашей виртуальной машины должен отвечать на запросы. Больше о доступных запросах по ссылке https://github.com/Krushiler/com.krushiler.set-game-server/blob/master/Readme.md
