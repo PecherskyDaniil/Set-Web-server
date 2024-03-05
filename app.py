@@ -51,18 +51,6 @@ def createtoken(nickname,password):
 # create the Flask app
 app = Flask(__name__)
 
-@app.route('/user/login', methods=['POST'])
-def logining():
-    global dannue
-    request_data= request.get_json()
-    response={'nickname':dannue[request_data['accessToken']]}
-    response=json.dumps(response)
-    return response
-
-@app.route('/example', methods=["POST"])
-def form_example():
-    return str(SetsOnField(rmlist[0]["field"]))
-
 # GET requests will be blocked
 @app.route('/user/register', methods=['POST'])
 def registration():
