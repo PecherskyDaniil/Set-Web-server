@@ -11,10 +11,13 @@
 6.   В папке с файлами пропишите эту команду
 ` export FLASK_APP=hello `
 7.   В config файле вашего сайта, в разделе location укажите в директиве proxy_pass путь к вашему сокету (имя юзера и setapp ваши):
-` location / {
+  ```
+ location / {
         proxy_pass http://unix:/home/user/setapp/setapp.sock;
-    }`
-8.     Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой `systemctl daemon-reload `
+
+   }
+   ```
+ 8.     Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой ` systemctl daemon-reload `
 ```
 [Unit]
 Description=setapp.service - A Flask application run with Gunicorn.
