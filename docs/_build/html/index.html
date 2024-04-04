@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to Web Server for Set Game’s documentation! &#8212; документация Web Server for Set Game 1.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=9ca2116e"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-web-server-for-set-game-s-documentation">
+<h1>Welcome to Web Server for Set Game’s documentation!<a class="headerlink" href="#welcome-to-web-server-for-set-game-s-documentation" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.SetsOnField"><code class="docutils literal notranslate"><span class="pre">SetsOnField()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.createfield"><code class="docutils literal notranslate"><span class="pre">createfield()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.createtoken"><code class="docutils literal notranslate"><span class="pre">createtoken()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.fail"><code class="docutils literal notranslate"><span class="pre">fail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.fieldgeter"><code class="docutils literal notranslate"><span class="pre">fieldgeter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.registration"><code class="docutils literal notranslate"><span class="pre">registration()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.roomcreate"><code class="docutils literal notranslate"><span class="pre">roomcreate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.roomenter"><code class="docutils literal notranslate"><span class="pre">roomenter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.roomlist"><code class="docutils literal notranslate"><span class="pre">roomlist()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.setadder"><code class="docutils literal notranslate"><span class="pre">setadder()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.setpicker"><code class="docutils literal notranslate"><span class="pre">setpicker()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#app.setscores"><code class="docutils literal notranslate"><span class="pre">setscores()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Алфавитный указатель</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Состав модуля</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Поиск</span></a></p></li>
+</ul>
+</section>
+<section id="readme-file">
+<h1>Readme File<a class="headerlink" href="#readme-file" title="Link to this heading">¶</a></h1>
+<p>Для развертывания данного сервера вам понадобится:</p>
+<ol class="arabic">
+<li><p>Установить Python на сервер:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-pip</span></code></p></li>
+<li><p>Установить Flask на сервер:
+<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">Flask</span></code></p></li>
+<li><p>Установить Gunicorn:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">gunicorn</span></code></p></li>
+<li><p>Установите nginx:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">nginx</span></code></p></li>
+<li><p>Перенесите файлы с репозитория в отдельную папку (далее будет указываться как setapp, но вы можете назвать по своему, главное не забудьте поменять это названия в конфигах и командах)</p></li>
+<li><p>В папке с файлами пропишите эту команду
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">FLASK_APP=hello</span></code></p></li>
+<li><p>В config файле вашего сайта, в разделе location укажите в директиве proxy_pass путь к вашему сокету (имя юзера и setapp ваши):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+   <span class="n">proxy_pass</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">unix</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">setapp</span><span class="o">/</span><span class="n">setapp</span><span class="o">.</span><span class="n">sock</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Чтобы создать собственный сервис, создайте файл в папке /etc/systemd/system. Содержание файла setapp.service ниже.После создания перезагрузите системного демона командой
+<code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">setapp</span><span class="o">.</span><span class="n">service</span> <span class="o">-</span> <span class="n">A</span> <span class="n">Flask</span> <span class="n">application</span> <span class="n">run</span> <span class="k">with</span> <span class="n">Gunicorn</span><span class="o">.</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">User</span><span class="o">=</span><span class="n">user</span>
+<span class="n">Group</span><span class="o">=</span><span class="n">user</span>
+<span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">setapp</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gunicorn</span> <span class="o">--</span><span class="n">workers</span> <span class="mi">3</span> <span class="o">--</span><span class="n">bind</span> <span class="n">unix</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">setapp</span><span class="o">/</span><span class="n">setapp</span><span class="o">.</span><span class="n">sock</span> <span class="n">wsgi</span><span class="p">:</span><span class="n">app</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>После запустите сервис командой <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">setapp</span> <span class="pre">start</span></code>
+С этого момента публичный адрес вашей виртуальной машины должен отвечать на запросы. Больше о доступных запросах по ссылке <a class="reference external" href="https://github.com/Krushiler/com.krushiler.set-game-server/blob/master/Readme.md">https://github.com/Krushiler/com.krushiler.set-game-server/blob/master/Readme.md</a></p></li>
+</ol>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Web Server for Set Game</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="api.html" title="следующая глава">API Reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, PecherskyDaniil.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

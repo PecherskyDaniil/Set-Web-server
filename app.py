@@ -6,12 +6,18 @@ from hashlib import md5
 
 
 def createfield():
+    """
+    Создает поле со случайными картами
+    """
     field={"cards":[]}
     for id in range(9):
         field["cards"].append({"id":id,"color":int((((rand.random())*10)%3)+1),"shape":int((((rand.random())*10)%3)+1),"fill":int((((rand.random())*10)%3)+1),"count":int((((rand.random())*10)%3)+1)})
     return field
 
 def SetsOnField(data):
+    """
+    Проверяет наличие сетов на поле и возвращает id карт
+    """
     orfield=data["cards"]
     field=[]
     for i in range(len(orfield)):
@@ -38,12 +44,18 @@ rmlist=[]
 whoingame={}
 idcounter=0
 def fail(message):
+    """
+    Возвращает json ошибки
+    """
     response={"success":"false","exception":{"message":message}}
     response=json.dumps(response)
     return response
 
 
 def createtoken(nickname,password):
+    """
+    Создает токен пользователя
+    """
     m=nickname+password
     md5_hash = md5(m.encode("utf8")).hexdigest()
     return md5_hash
@@ -54,6 +66,9 @@ app = Flask(__name__)
 # GET requests will be blocked
 @app.route('/user/register', methods=['POST'])
 def registration():
+    """
+    Запрос на регистрацию
+    """
     request_data = request.get_json()
     global dannue
     nickname = None
@@ -78,6 +93,9 @@ def registration():
 
 @app.route('/set/room/create', methods=['POST'])
 def roomcreate():
+    """
+    Запрос на создание комнаты
+    """
     request_data = request.get_json()
     global dannue
     global rmlist
@@ -99,6 +117,9 @@ def roomcreate():
 
 @app.route('/set/room/list', methods=['POST'])
 def roomlist():
+    """
+    Запрос на получение списка комнат
+    """
     request_data = request.get_json()
     accesstoken=None
     if request_data:
@@ -117,6 +138,9 @@ def roomlist():
 
 @app.route('/set/room/enter', methods=['POST'])
 def roomenter():
+    """
+    Запрос на вход в комнату
+    """
     request_data = request.get_json()
     accesstoken=None
     gameid=None
@@ -158,6 +182,9 @@ def roomenter():
 
 @app.route('/set/field', methods=['POST'])
 def fieldgeter():
+    """
+    Запрос на получение поля
+    """
     request_data = request.get_json()
     accesstoken=None
     if request_data:
@@ -180,6 +207,9 @@ def fieldgeter():
 
 @app.route('/set/pick', methods=['POST'])
 def setpicker():
+    """
+    Запрос на взятие сета
+    """
     request_data = request.get_json()
     accesstoken=None
     cards=[]
@@ -225,6 +255,9 @@ def setpicker():
 
 @app.route('/set/add', methods=['POST'])
 def setadder():
+    """
+    Запрос на добавление карт
+    """
     request_data = request.get_json()
     accesstoken=None
     if request_data:
@@ -250,6 +283,9 @@ def setadder():
 
 @app.route('/set/scores', methods=['POST'])
 def setscores():
+    """
+    Запрос на получение Очков
+    """
     request_data = request.get_json()
     accesstoken=None
     if request_data:
